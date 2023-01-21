@@ -23,6 +23,7 @@ public class Keyboard extends JComponent {
         jp.setLayout(new GridLayout(3,8));
         for (String character : list) {
             addButton(jp, character);
+            //Add action listener here
         }
         return jp;
     }
@@ -31,7 +32,10 @@ public class Keyboard extends JComponent {
         JFrame frame = new JFrame("Keyboard");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         JPanel jp =  keyboard();
-        frame.add(jp);
+        frame.add(jp, BorderLayout.SOUTH);
+        JPanel screen = new JPanel();
+        screen.setLayout(new GridLayout(3,8));
+        frame.add(screen, BorderLayout.NORTH);
         frame.pack();
         frame.setVisible(true);
     }
