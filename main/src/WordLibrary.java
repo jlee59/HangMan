@@ -7,7 +7,11 @@ import java.util.Random;
 public class WordLibrary {
     private String[] library;
     private Random random;
-    public WordLibrary(String fileName) {
+    public WordLibrary(){
+
+    }
+
+    public String WordLibrary(String fileName) {
         ArrayList<String> k = new ArrayList();
 
         try {
@@ -19,12 +23,12 @@ public class WordLibrary {
             }
             this.library = new String[k.size()];
             random = new Random();
-            System.out.println(k.get(random.nextInt(k.size())));
-
             br.close();
         } catch (Exception var6) {
             var6.printStackTrace();
         }
+        return k.get(random.nextInt(k.size()));
 
     }
+
 }
