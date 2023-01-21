@@ -33,6 +33,7 @@ public class ImageHandler extends JComponent{
         BufferedImage bi = ImageIO.read(file);
         ImageIcon imageIcon = new ImageIcon(bi);
         JLabel jLabel = new JLabel();
+        jLabel.setSize(500, 350);
         jLabel.setIcon(imageIcon);
         return jLabel;
     }

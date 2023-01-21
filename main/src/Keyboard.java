@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Random;
 public class Keyboard extends JComponent {
     static int count = 1;
+    static String diff_level = "";
     static WordLibrary wb = new WordLibrary();
     static String answer = wb.WordLibrary("WordLibrary.txt");
     static JPanel screen;
@@ -160,5 +161,54 @@ public class Keyboard extends JComponent {
                 createGUI();
             }
         });
+    }
+
+    public void getHomePage() {
+        JFrame homePage = new JFrame();
+        JPanel titlePanel = new JPanel();
+        titlePanel.setLayout(new GridLayout(3,8));
+        JLabel titleLabel = new JLabel("Welcome to HANGMAN");
+        titlePanel.add(titleLabel);
+        homePage.add(titlePanel, BorderLayout.NORTH);
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new GridLayout(3,8));
+        JButton easyButton = new JButton("EASY");
+        easyButton.setActionCommand("easy");
+        easyButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Keyboard.diff_level = easyButton.getActionCommand();
+                createGUI();
+                homePage.dispose();
+
+            }
+        });
+        buttonPanel.add(easyButton);
+        JButton mediumButton = new JButton("MEDIUM");
+        mediumButton.setActionCommand("medium");
+        mediumButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Keyboard.diff_level = mediumButton.getActionCommand();
+                createGUI();
+                homePage.dispose();
+
+            }
+        });
+        buttonPanel.add(mediumButton);
+        JButton hardButton = new JButton("HARD");
+        hardButton.setActionCommand("hard");
+        hardButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Keyboard.diff_level = hardButton.getActionCommand();
+                createGUI();
+                homePage.dispose();
+
+            }
+        });
+        buttonPanel.add(hardButton);
+        homePage.add(buttonPanel, BorderLayout.SOUTH);
+
     }
 }
