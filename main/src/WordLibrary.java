@@ -18,8 +18,8 @@ public class WordLibrary {
                 k.add(line);
             }
             this.library = new String[k.size()];
-            random = new Random(k.size());
-            System.out.println(k.get(random.nextInt()));
+            random = new Random();
+            System.out.println(k.get(random.nextInt(k.size())));
 
             br.close();
         } catch (Exception var6) {
