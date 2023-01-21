@@ -27,14 +27,14 @@ public class Keyboard extends JComponent {
                 String buttonChr = e.getActionCommand();
                 Character chr = buttonChr.charAt(0);
                 if (!Main.checkLetterInWord(chr, answer)) {
-                     guess += 1;
-                     button.setBackground(Color.red);
-                     if (!(guess < 5)) {
+                    guess += 1;
+                    button.setBackground(Color.red);
+                    if (!(guess < 5)) {
                         for (int i = 0; i < answer.length(); i++) {
                             textFields[i].setText(String.valueOf(answer.charAt(i)).toUpperCase());
-                            
+
                         }
-                     }
+                    }
                 } else {
                     for (int i = 0; i < answer.length(); i++) {
                         System.out.println((answer.charAt(i)) + buttonChr.toLowerCase());
@@ -51,7 +51,7 @@ public class Keyboard extends JComponent {
         jp.add(button);
     }
     static String[] list = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
-    "S", "T", "U", "V", "W", "X", "Y", "Z"};
+            "S", "T", "U", "V", "W", "X", "Y", "Z"};
 
     public static JPanel keyboard() {
         JPanel jp = new JPanel();

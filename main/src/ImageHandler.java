@@ -20,7 +20,7 @@ public class ImageHandler extends JComponent{
     public void ImageDisplay(int count) throws IOException {
         File file = null;
         if (count == 1) {
-            file = new File("/Users/josephlee/IdeaProjects/HangMan1/guess 2.jpg");
+            file = new File("guess 1.jpg");
         } if (count == 2) {
             file = new File("/Users/josephlee/IdeaProjects/HangMan1/guess 2.jpg");
         } if (count == 3) {
