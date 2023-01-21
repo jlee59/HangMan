@@ -5,7 +5,7 @@ import java.awt.event.*;
 import java.util.ArrayList;
 import java.util.Random;
 public class Keyboard extends JComponent {
-    static int guess = 0;
+    static int count = 0;
     static WordLibrary wb = new WordLibrary();
     static String answer = wb.WordLibrary("WordLibrary.txt");
     static JPanel screen;
@@ -27,9 +27,9 @@ public class Keyboard extends JComponent {
                 String buttonChr = e.getActionCommand();
                 Character chr = buttonChr.charAt(0);
                 if (!Main.checkLetterInWord(chr, answer)) {
-                    guess += 1;
+                    count += 1;
                     button.setBackground(Color.red);
-                    if (!(guess < 5)) {
+                    if (!(count < 5)) {
                         for (int i = 0; i < answer.length(); i++) {
                             textFields[i].setText(String.valueOf(answer.charAt(i)).toUpperCase());
 
