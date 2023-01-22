@@ -10,9 +10,9 @@ import java.util.ArrayList;
 import java.util.Random;
 public class Keyboard extends JComponent {
     static int count = 1;
-    static String diff_level = "";
+    static String fileName = "";
     static WordLibrary wb = new WordLibrary();
-    static String answer = wb.WordLibrary("WordLibrary.txt");
+    static String answer = "";
     static JPanel screen;
     static JTextField textField0 = new JTextField();
     static JTextField textField1 = new JTextField();
@@ -119,9 +119,9 @@ public class Keyboard extends JComponent {
                     textField5.setText("");
                     textField6.setText("");
                 }
+                answer = wb.WordLibrary(fileName);
             }
         });
-        frame.dispose();
         frame = new JFrame("Keyboard");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         JPanel game = new JPanel();
@@ -158,13 +158,15 @@ public class Keyboard extends JComponent {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                createGUI();
+                getHomePage();
             }
         });
     }
 
-    public void getHomePage() {
+    public static void getHomePage() {
         JFrame homePage = new JFrame();
+        homePage.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        homePage.setSize(500, 500);
         JPanel titlePanel = new JPanel();
         titlePanel.setLayout(new GridLayout(3,8));
         JLabel titleLabel = new JLabel("Welcome to HANGMAN");
@@ -173,42 +175,46 @@ public class Keyboard extends JComponent {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(3,8));
         JButton easyButton = new JButton("EASY");
-        easyButton.setActionCommand("easy");
+        easyButton.setActionCommand("Easy");
         easyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Keyboard.diff_level = easyButton.getActionCommand();
-                createGUI();
+                fileName = "Easy.txt";
+                answer = wb.WordLibrary("Easy.txt");
                 homePage.dispose();
+                createGUI();
 
             }
         });
         buttonPanel.add(easyButton);
         JButton mediumButton = new JButton("MEDIUM");
-        mediumButton.setActionCommand("medium");
+        mediumButton.setActionCommand("Medium");
         mediumButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Keyboard.diff_level = mediumButton.getActionCommand();
-                createGUI();
+                fileName = "Medium.txt";
+                answer = wb.WordLibrary("Medium.txt");
                 homePage.dispose();
+                createGUI();
 
             }
         });
         buttonPanel.add(mediumButton);
         JButton hardButton = new JButton("HARD");
-        hardButton.setActionCommand("hard");
+        hardButton.setActionCommand("Hard");
         hardButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Keyboard.diff_level = hardButton.getActionCommand();
-                createGUI();
+                fileName = "Hard.txt";
+                answer = wb.WordLibrary("Hard.txt");
                 homePage.dispose();
+                createGUI();
 
             }
         });
         buttonPanel.add(hardButton);
         homePage.add(buttonPanel, BorderLayout.SOUTH);
+        homePage.setVisible(true);
 
     }
 }
