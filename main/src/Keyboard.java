@@ -109,7 +109,7 @@ public class Keyboard extends JComponent {
             public void actionPerformed(ActionEvent e) {
                 incorrectGuess = new ArrayList<>();
                 correctGuess = new ArrayList<>();
-                count = 0;
+                count = 1;
                 for (JTextField tf : textFields) {
                     textField0.setText("");
                     textField1.setText("");
@@ -119,6 +119,7 @@ public class Keyboard extends JComponent {
                     textField5.setText("");
                     textField6.setText("");
                 }
+                answer = wb.WordLibrary(fileName);
             }
         });
         frame = new JFrame("Keyboard");
