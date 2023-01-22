@@ -163,11 +163,24 @@ public class Keyboard extends JComponent {
         });
     }
 
-    public static void getHomePage() {
+    public static void getHomePage(){
+        JPanel imagePanel = new JPanel();
         JFrame homePage = new JFrame();
+        try{
+            File file = new File("Hangman.jpeg");
+            BufferedImage bi = ImageIO.read(file);
+            ImageIcon imageIcon = new ImageIcon(bi);
+            JLabel jLabel = new JLabel();
+            jLabel.setSize(50, 200);
+            jLabel.setIcon(imageIcon);
+            imagePanel.add(jLabel);
+            homePage.add(imagePanel, BorderLayout.CENTER);
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+        JPanel titlePanel = new JPanel();
         homePage.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         homePage.setSize(500, 500);
-        JPanel titlePanel = new JPanel();
         titlePanel.setLayout(new GridLayout(3,8));
         JLabel titleLabel = new JLabel("Welcome to HANGMAN");
         titlePanel.add(titleLabel);
